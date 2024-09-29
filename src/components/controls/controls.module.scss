@@ -1,0 +1,70 @@
+.buttons {
+    max-width: 1440px;
+    width: 100%;
+    margin: 20px auto 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & div {
+        display: flex;
+        gap: 20px;
+
+        @media screen and (max-width: 480px) {
+            & {
+                gap: 10px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1919px) {
+        & {
+            margin-right: unset;
+            width: 100%;
+            max-width: unset;
+        }
+    }
+}
+
+.swiperControl {
+    background: transparent;
+    border: none;
+
+    &:disabled {
+        opacity: 0.7;
+    }
+
+    & svg {
+        width: 45px;
+        height: 45px;
+
+        @media screen and (max-width: 320px) {
+            width: 35px;
+            height: 35px;
+        }
+    }
+}
+
+.showAll {
+    max-width: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #E41D1B;
+    padding: 12px 0;
+    border-radius: 10px;
+    border: none;
+    font-family: "IBM Plex Sans";
+    font-size: 15px;
+    font-weight: 500;
+
+    @media screen and (max-width: 480px) {
+        & {
+            width: fit-content;
+            padding: 12px 25px;
+            max-width: unset;
+        }
+    }
+}
