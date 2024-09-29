@@ -1,6 +1,7 @@
 import { Configuration, ProgressPlugin } from "webpack";
 import { BuildOptions } from "config-types";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
@@ -9,7 +10,15 @@ export function buildPlugins({ mode, analyzer, paths, port }: BuildOptions): Con
     const isProd = mode === "production";
 
     const plugins: Configuration["plugins"] = [
-        new HtmlWebpackPlugin({ template: paths.html })
+        new HtmlWebpackPlugin({ template: paths.html }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: "public/mock-assets/tires/spiky-tires.png",
+                    to: "mock-assets/tires"
+                }
+            ]
+        })
     ]
 
     if (isDev) {
